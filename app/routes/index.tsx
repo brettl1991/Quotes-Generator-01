@@ -1,9 +1,10 @@
+import type { LinksFunction } from "@remix-run/react/dist/routeModules";
+import { QuoteBox, quoteBoxLink } from "~/components";
+
+export const links: LinksFunction = () => [...quoteBoxLink()];
+
 const QuotesGenerator = () => {
-  return (
-    <div>
-      <p>Hello</p>
-    </div>
-  );
+  return <QuoteBox />;
 };
 
 export default QuotesGenerator;
