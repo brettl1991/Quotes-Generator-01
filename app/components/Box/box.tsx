@@ -1,4 +1,5 @@
 import type { LinksFunction } from "@remix-run/node";
+import type { BoxType } from "./boxe.type";
 import quoteBoxStyle from "./style/box.css";
 
 const quoteBoxLink: LinksFunction = () => [
@@ -8,12 +9,8 @@ const quoteBoxLink: LinksFunction = () => [
   },
 ];
 
-const QuoteBox = () => {
-  return (
-    <div>
-      <p>Hello Cajja</p>
-    </div>
-  );
+const QuoteBox = ({ children }: BoxType) => {
+  return <div className="quote-box-container">{children}</div>;
 };
 
 export { QuoteBox, quoteBoxLink };
