@@ -1,5 +1,6 @@
 import type { LinksFunction } from "@remix-run/node";
 import quoteTextStyle from "./style/text.css";
+import type { TextType } from "./text.type";
 
 const quoteTextLink: LinksFunction = () => [
   {
@@ -8,11 +9,11 @@ const quoteTextLink: LinksFunction = () => [
   },
 ];
 
-const QuoteText = () => {
+const QuoteText = ({ children, title }: TextType) => {
   return (
-    <div>
-      <p>I am a text</p>
-    </div>
+    <span data-author data-title={title}>
+      {children}
+    </span>
   );
 };
 

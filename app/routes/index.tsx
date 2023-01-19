@@ -2,39 +2,39 @@ import type { LinksFunction } from "@remix-run/react/dist/routeModules";
 import {
   Button,
   QuoteBox,
-  quoteBoxLink,
   QuoteText,
   quoteTextLink,
   buttonLink,
   Loader,
   loaderLink,
+  quoteBoxLink,
 } from "~/components";
+import { globalLink } from "~/components/global/global";
 
 export const links: LinksFunction = () => [
-  ...quoteBoxLink(),
   ...quoteTextLink(),
   ...buttonLink(),
   ...loaderLink(),
+  ...globalLink(),
+  ...quoteBoxLink(),
 ];
 
 const QuotesGenerator = () => {
   return (
-    <QuoteBox quotesContainer>
-      <QuoteText quoteText>
-        <i class="fas fa-quote-left"></i>
-        <span id="quote"></span>
+    <QuoteBox>
+      <QuoteText title>
+        {/* <i class="fas fa-quote-left"></i> */}
+        title
       </QuoteText>
 
-      <QuoteText author>
-        <span id="author"></span>
-      </QuoteText>
+      <QuoteText>author</QuoteText>
 
-      <div buttonContainer>
+      {/* <div buttonContainer>
         <Button twitterButton>
           <i class="fab fa-twitter"></i>
         </Button>
         <Button newQuote />
-      </div>
+      </div> */}
 
       <Loader></Loader>
     </QuoteBox>
