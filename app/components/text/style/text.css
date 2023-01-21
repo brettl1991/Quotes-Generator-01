@@ -1,4 +1,4 @@
-[data-author] {
+[data-text] {
   margin-top: 15px;
   font-size: 2rem;
   font-weight: 400;
@@ -9,7 +9,7 @@
   font-size: 2.75rem;
 }
 
-.long-text {
+[data-longquote] {
   font-size: 2rem;
 }
 

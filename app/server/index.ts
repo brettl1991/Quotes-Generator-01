@@ -1,0 +1,1 @@
+export { quoteList } from "./quote";
