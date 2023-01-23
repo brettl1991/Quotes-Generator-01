@@ -1,4 +1,5 @@
 import type { LinksFunction } from "@remix-run/node";
+import type { buttonType } from "./button.type";
 import buttonStyle from "./style/button.css";
 
 const buttonLink: LinksFunction = () => [
@@ -8,12 +9,11 @@ const buttonLink: LinksFunction = () => [
   },
 ];
 
-const Button = () => {
+const Button = ({ children, twitter }: buttonType) => {
   return (
-    <div>
-      <button>New Quote</button>
-      <button>Tweet</button>
-    </div>
+    <button data-button data-new-quote data-fa-twitter data-twitter={twitter}>
+      {children}
+    </button>
   );
 };
 
