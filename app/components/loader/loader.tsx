@@ -1,4 +1,5 @@
 import type { LinksFunction } from "@remix-run/node";
+import type { LoaderType } from "./loader.type";
 
 import loaderStyle from "./style/loader.css";
 
@@ -9,12 +10,8 @@ const loaderLink: LinksFunction = () => [
   },
 ];
 
-const Loader = () => {
-  return (
-    <div>
-      <p>I will be a loader</p>
-    </div>
-  );
+const Loader = ({ loader }: LoaderType) => {
+  return <div data-loader></div>;
 };
 
 export { Loader, loaderLink };
