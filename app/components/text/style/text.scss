@@ -1,15 +1,19 @@
 [data-title] {
   font-size: 2.75rem;
+
+  @media screen and (max-width: 1000px) {
+    font-size: 2.5rem;
+  }
 }
 
+.longquote {
+  font-size: 2rem;
+}
 [data-quote-author] {
   margin-top: 15px;
   font-size: 2rem;
   font-weight: 400;
   font-style: italic;
-}
-[data-longquote] {
-  font-size: 2rem;
 }
 
 .fa-text-left {
