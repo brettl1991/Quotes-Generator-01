@@ -9,9 +9,14 @@ const quoteTextLink: LinksFunction = () => [
   },
 ];
 
-const QuoteText = ({ children, title, longquote }: TextType) => {
+const QuoteText = ({ children, title, author, longquote }: TextType) => {
   return (
-    <span data-longquote={longquote} data-text data-title={title}>
+    <span
+      data-longquote={longquote}
+      data-text
+      data-title={title}
+      data-quote-author={author}
+    >
       {children}
     </span>
   );

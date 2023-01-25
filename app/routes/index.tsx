@@ -73,8 +73,10 @@ const QuotesGenerator = () => {
             {randomQuote?.text || newQuote.text}
             {/* <i class="fas fa-quote-left"></i> */}
           </QuoteText>
-          <QuoteText>{newQuote.author ?? "Unknown"}</QuoteText>
           <div>
+            <QuoteText author>{newQuote.author ?? "Unknown"}</QuoteText>
+          </div>
+          <div data-button-container>
             <Button onClick={tweetQuote} twitter>
               <RiTwitterFill />
             </Button>
