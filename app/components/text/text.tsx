@@ -12,7 +12,7 @@ const quoteTextLink: LinksFunction = () => [
 const QuoteText = ({ children, title, author, longquote }: TextType) => {
   return (
     <span
-      data-longquote={longquote}
+      className={longquote ? "longquote" : ""}
       data-text
       data-title={title}
       data-quote-author={author}
