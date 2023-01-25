@@ -4,4 +4,5 @@ export type buttonType = {
   children: ReactNode;
   twitter?: boolean;
   type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 };

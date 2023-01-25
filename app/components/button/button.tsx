@@ -9,7 +9,12 @@ const buttonLink: LinksFunction = () => [
   },
 ];
 
-const Button = ({ children, twitter, type = "button" }: buttonType) => {
+const Button = ({
+  children,
+  twitter,
+  type = "button",
+  onClick,
+}: buttonType) => {
   return (
     <button
       type={type}
@@ -17,6 +22,7 @@ const Button = ({ children, twitter, type = "button" }: buttonType) => {
       data-new-quote
       data-fa-twitter
       data-twitter={twitter}
+      onClick={onClick}
     >
       {children}
     </button>

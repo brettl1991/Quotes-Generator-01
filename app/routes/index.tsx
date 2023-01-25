@@ -55,6 +55,15 @@ const QuotesGenerator = () => {
 
   console.log(navigation.state);
   console.log(isLoading);
+
+  function tweetQuote() {
+    const twitterURL = `https://twitter.com/intent/tweet?text=${
+      newQuote?.text
+    } - ${newQuote.author ?? "Unknown"}`;
+
+    window.open(twitterURL, "_blank");
+  }
+
   return (
     <div>
       {isLoading ? <Loader /> : ""}
@@ -64,11 +73,9 @@ const QuotesGenerator = () => {
             {randomQuote?.text || newQuote.text}
             {/* <i class="fas fa-quote-left"></i> */}
           </QuoteText>
-          <QuoteText>
-            {!newQuote.author ? "Unknown" : newQuote.author}
-          </QuoteText>
+          <QuoteText>{newQuote.author ?? "Unknown"}</QuoteText>
           <div>
-            <Button twitter>
+            <Button onClick={tweetQuote} twitter>
               <RiTwitterFill />
             </Button>
             <Button type="submit">New Quote</Button>
