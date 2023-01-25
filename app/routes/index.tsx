@@ -24,6 +24,7 @@ import { globalLink } from "~/components/global/global";
 import { quoteList } from "~/server";
 
 import { RiTwitterFill } from "react-icons/ri";
+import { FaQuoteLeft } from "react-icons/fa";
 
 export const action: ActionFunction = async () => {
   const randomQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
@@ -70,6 +71,7 @@ const QuotesGenerator = () => {
       <Form method="post">
         <QuoteBox>
           <QuoteText longquote={newQuote.text.length > 120} title>
+            <FaQuoteLeft className="fa-quote-left" />
             {randomQuote?.text || newQuote.text}
             {/* <i class="fas fa-quote-left"></i> */}
           </QuoteText>
