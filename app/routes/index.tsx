@@ -1,5 +1,14 @@
-import type { LoaderFunction, LinksFunction } from "@remix-run/node";
-import { useLoaderData, useNavigation } from "@remix-run/react";
+import type {
+  LoaderFunction,
+  LinksFunction,
+  ActionFunction,
+} from "@remix-run/node";
+import {
+  Form,
+  useActionData,
+  useLoaderData,
+  useNavigation,
+} from "@remix-run/react";
 
 import {
   Button,
@@ -16,7 +25,13 @@ import { quoteList } from "~/server";
 
 import { RiTwitterFill } from "react-icons/ri";
 
-export const loader: LoaderFunction = () => {
+export const action: ActionFunction = async () => {
+  const randomQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
+
+  return { randomQuote };
+};
+
+export const loader: LoaderFunction = async () => {
   const newQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
 
   return { newQuote };
@@ -33,29 +48,33 @@ export const links: LinksFunction = () => [
 
 const QuotesGenerator = () => {
   const { newQuote } = useLoaderData();
+  const { randomQuote = {} } = useActionData() || {};
   const navigation = useNavigation();
 
-  const isLoading = navigation.state === "idle";
+  const isLoading = navigation.state !== "idle";
 
   console.log(navigation.state);
   console.log(isLoading);
   return (
     <div>
-      {isLoading && <Loader />}
-
-      <QuoteBox>
-        <QuoteText longquote={newQuote.text.length > 120} title>
-          {newQuote.text}
-          {/* <i class="fas fa-quote-left"></i> */}
-        </QuoteText>
-        <QuoteText>{!newQuote.author ? "Unknown" : newQuote.author}</QuoteText>
-        <div>
-          <Button twitter>
-            <RiTwitterFill />
-          </Button>
-          <Button>New Quote</Button>
-        </div>
-      </QuoteBox>
+      {isLoading ? <Loader /> : ""}
+      <Form method="post">
+        <QuoteBox>
+          <QuoteText longquote={newQuote.text.length > 120} title>
+            {randomQuote?.text || newQuote.text}
+            {/* <i class="fas fa-quote-left"></i> */}
+          </QuoteText>
+          <QuoteText>
+            {!newQuote.author ? "Unknown" : newQuote.author}
+          </QuoteText>
+          <div>
+            <Button twitter>
+              <RiTwitterFill />
+            </Button>
+            <Button type="submit">New Quote</Button>
+          </div>
+        </QuoteBox>
+      </Form>
     </div>
   );
 };
