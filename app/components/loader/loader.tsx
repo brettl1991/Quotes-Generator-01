@@ -1,5 +1,4 @@
 import type { LinksFunction } from "@remix-run/node";
-import type { LoaderType } from "./loader.type";
 
 import loaderStyle from "./style/loader.css";
 
