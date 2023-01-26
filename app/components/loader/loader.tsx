@@ -10,8 +10,8 @@ const loaderLink: LinksFunction = () => [
   },
 ];
 
-const Loader = ({ loader }: LoaderType) => {
-  return <div data-loader></div>;
+const Loader = () => {
+  return <div data-loader />;
 };
 
 export { Loader, loaderLink };
