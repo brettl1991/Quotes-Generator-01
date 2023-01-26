@@ -67,7 +67,13 @@ const QuotesGenerator = () => {
 
   return (
     <div>
-      {isLoading ? <Loader /> : ""}
+      {isLoading ? (
+        <div data-loader-container>
+          <Loader />
+        </div>
+      ) : (
+        ""
+      )}
       <Form method="post">
         <QuoteBox>
           <QuoteText longquote={newQuote.text.length > 120} title>

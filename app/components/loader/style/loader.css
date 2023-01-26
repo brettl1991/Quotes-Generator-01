@@ -1,3 +1,8 @@
+[data-loader-container] {
+  display: flex;
+  justify-content: center;
+}
+
 [data-loader] {
   border: 16px solid #f3f3f3;
   border-top: 16px solid #333;
